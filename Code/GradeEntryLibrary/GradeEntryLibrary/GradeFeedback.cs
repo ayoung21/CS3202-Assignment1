@@ -15,6 +15,8 @@ namespace GradeEntryLibrary
         public GradeFeedback()
         {
             InitializeComponent();
+
+            this.groupBoxTitle.Text = "Grade";
             this.intializeDefaultRadioButtons();
         }
 
@@ -26,9 +28,9 @@ namespace GradeEntryLibrary
             this.radioButtonOptionD.Text = "Unstatisfactory";
 
             this.radioButtonOptionA.Tag = 3;
-            this.radioButtonOptionA.Tag = 2;
-            this.radioButtonOptionA.Tag = 1;
-            this.radioButtonOptionA.Tag = 0;
+            this.radioButtonOptionB.Tag = 2;
+            this.radioButtonOptionC.Tag = 1;
+            this.radioButtonOptionD.Tag = 0;
         }
     }
 }
