@@ -111,7 +111,6 @@
             this.dataGridViewFeedback.RowTemplate.Height = 24;
             this.dataGridViewFeedback.Size = new System.Drawing.Size(500, 250);
             this.dataGridViewFeedback.TabIndex = 1;
-            this.dataGridViewFeedback.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFeedback_CellContentClick);
             this.dataGridViewFeedback.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFeedback_CellLeave);
             // 
             // Add

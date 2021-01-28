@@ -13,10 +13,15 @@ namespace GradeEntryLibrary
 {
     public partial class GradeFeedback: UserControl
     {
+        const string DEFUALT_TITLE = "Grade";
         const string TEXT_EXCEPTIONAL = "Exceptional";
         const string TEXT_ACCEPTABLE  = "Acceptable";
         const string TEXT_AMATEUR = "Amateur";
         const string TEXT_UNSATISFACTORY = "Unsatisfactory";
+        const int DEFAULT_EXCEPTIONAL_VALUE = 3;
+        const int DEFAULT_ACCEPTABLE_VALUE = 2;
+        const int DEFAULT_AMATEUR_VALUE = 1;
+        const int DEFAULT_UNSATISFACTORY_VALUE = 0;
         const int NUMBER_OF_DEFAULT_COMMENT_ROWS = 3;
 
         private int _radioButtonExceptionalValue;
@@ -75,12 +80,11 @@ namespace GradeEntryLibrary
         public GradeFeedback()
         {
             InitializeComponent();
+            this.groupBoxTitle.Text = DEFUALT_TITLE;
             this.DefaultComments = new List<string>();
-
             this.dataGridViewFeedback.Rows.Add(NUMBER_OF_DEFAULT_COMMENT_ROWS);
 
-            this.groupBoxTitle.Text = "Grade";
-            this.intializeDefaultRadioButtons();
+            this.setDefaultTagsForRadioButtons();
         }
 
         public void AddComment(string comment)
@@ -93,33 +97,17 @@ namespace GradeEntryLibrary
             }
         }
 
-        private void intializeDefaultRadioButtons()
-        {
-            this.setDefaultTagsForRadioButtons();
-
-            this.radioButtonExceptional.Text = $"({this.RadioButtonExceptionalValue}) {TEXT_EXCEPTIONAL}";
-            this.radioButtonAcceptable.Text = $"({this.RadioButtonAcceptableValue}) {TEXT_ACCEPTABLE}";
-            this.radioButtonAmateur.Text = $"({this.RadioButtonAmateurValue}) {TEXT_AMATEUR}";
-            this.radioButtonUnsatisfactory.Text = $"({this.RadioButtonUnsatisfactoryValue}) {TEXT_UNSATISFACTORY}";
-        }
-
         private void setDefaultTagsForRadioButtons()
         {
-            this.RadioButtonExceptionalValue = 3;
-            this.RadioButtonAcceptableValue = 2; 
-            this.RadioButtonAmateurValue = 1;
-            this.RadioButtonUnsatisfactoryValue = 0;
-        }
-
-        private void dataGridViewFeedback_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            this.RadioButtonExceptionalValue = DEFAULT_EXCEPTIONAL_VALUE;
+            this.RadioButtonAcceptableValue = DEFAULT_ACCEPTABLE_VALUE; 
+            this.RadioButtonAmateurValue = DEFAULT_AMATEUR_VALUE;
+            this.RadioButtonUnsatisfactoryValue = DEFAULT_UNSATISFACTORY_VALUE;
         }
 
         private void dataGridViewFeedback_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
-            int counter;
-            string comments;
+            // TODO: 
         }
     }
 
