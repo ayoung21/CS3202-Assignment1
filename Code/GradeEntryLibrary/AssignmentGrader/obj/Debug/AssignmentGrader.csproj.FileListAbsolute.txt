@@ -9,5 +9,5 @@ C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEnt
 C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.pdb
 C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\bin\Debug\GradeEntryLibrary.dll
 C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\bin\Debug\GradeEntryLibrary.pdb
-C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.Form1.resources
 C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.csproj.CopyComplete
+C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.FormAssignmentGrader.resources

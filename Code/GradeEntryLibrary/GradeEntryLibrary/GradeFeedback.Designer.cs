@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBoxTitle = new System.Windows.Forms.GroupBox();
-            this.radioButtonOptionD = new System.Windows.Forms.RadioButton();
-            this.radioButtonOptionC = new System.Windows.Forms.RadioButton();
-            this.radioButtonOptionB = new System.Windows.Forms.RadioButton();
-            this.radioButtonOptionA = new System.Windows.Forms.RadioButton();
+            this.radioButtonUnsatisfactory = new System.Windows.Forms.RadioButton();
+            this.radioButtonAmateur = new System.Windows.Forms.RadioButton();
+            this.radioButtonAcceptable = new System.Windows.Forms.RadioButton();
+            this.radioButtonExceptional = new System.Windows.Forms.RadioButton();
             this.dataGridViewFeedback = new System.Windows.Forms.DataGridView();
             this.Add = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,10 +42,10 @@
             // 
             // groupBoxTitle
             // 
-            this.groupBoxTitle.Controls.Add(this.radioButtonOptionD);
-            this.groupBoxTitle.Controls.Add(this.radioButtonOptionC);
-            this.groupBoxTitle.Controls.Add(this.radioButtonOptionB);
-            this.groupBoxTitle.Controls.Add(this.radioButtonOptionA);
+            this.groupBoxTitle.Controls.Add(this.radioButtonUnsatisfactory);
+            this.groupBoxTitle.Controls.Add(this.radioButtonAmateur);
+            this.groupBoxTitle.Controls.Add(this.radioButtonAcceptable);
+            this.groupBoxTitle.Controls.Add(this.radioButtonExceptional);
             this.groupBoxTitle.Location = new System.Drawing.Point(20, 20);
             this.groupBoxTitle.Name = "groupBoxTitle";
             this.groupBoxTitle.Size = new System.Drawing.Size(200, 128);
@@ -53,49 +53,49 @@
             this.groupBoxTitle.TabStop = false;
             this.groupBoxTitle.Text = "Title";
             // 
-            // radioButtonOptionD
+            // radioButtonUnsatisfactory
             // 
-            this.radioButtonOptionD.AutoSize = true;
-            this.radioButtonOptionD.Location = new System.Drawing.Point(6, 100);
-            this.radioButtonOptionD.Name = "radioButtonOptionD";
-            this.radioButtonOptionD.Size = new System.Drawing.Size(85, 21);
-            this.radioButtonOptionD.TabIndex = 4;
-            this.radioButtonOptionD.TabStop = true;
-            this.radioButtonOptionD.Text = "Option D";
-            this.radioButtonOptionD.UseVisualStyleBackColor = true;
+            this.radioButtonUnsatisfactory.AutoSize = true;
+            this.radioButtonUnsatisfactory.Location = new System.Drawing.Point(6, 100);
+            this.radioButtonUnsatisfactory.Name = "radioButtonUnsatisfactory";
+            this.radioButtonUnsatisfactory.Size = new System.Drawing.Size(85, 21);
+            this.radioButtonUnsatisfactory.TabIndex = 4;
+            this.radioButtonUnsatisfactory.TabStop = true;
+            this.radioButtonUnsatisfactory.Text = "Option D";
+            this.radioButtonUnsatisfactory.UseVisualStyleBackColor = true;
             // 
-            // radioButtonOptionC
+            // radioButtonAmateur
             // 
-            this.radioButtonOptionC.AutoSize = true;
-            this.radioButtonOptionC.Location = new System.Drawing.Point(6, 73);
-            this.radioButtonOptionC.Name = "radioButtonOptionC";
-            this.radioButtonOptionC.Size = new System.Drawing.Size(84, 21);
-            this.radioButtonOptionC.TabIndex = 3;
-            this.radioButtonOptionC.TabStop = true;
-            this.radioButtonOptionC.Text = "Option C";
-            this.radioButtonOptionC.UseVisualStyleBackColor = true;
+            this.radioButtonAmateur.AutoSize = true;
+            this.radioButtonAmateur.Location = new System.Drawing.Point(6, 73);
+            this.radioButtonAmateur.Name = "radioButtonAmateur";
+            this.radioButtonAmateur.Size = new System.Drawing.Size(84, 21);
+            this.radioButtonAmateur.TabIndex = 3;
+            this.radioButtonAmateur.TabStop = true;
+            this.radioButtonAmateur.Text = "Option C";
+            this.radioButtonAmateur.UseVisualStyleBackColor = true;
             // 
-            // radioButtonOptionB
+            // radioButtonAcceptable
             // 
-            this.radioButtonOptionB.AutoSize = true;
-            this.radioButtonOptionB.Location = new System.Drawing.Point(6, 48);
-            this.radioButtonOptionB.Name = "radioButtonOptionB";
-            this.radioButtonOptionB.Size = new System.Drawing.Size(84, 21);
-            this.radioButtonOptionB.TabIndex = 2;
-            this.radioButtonOptionB.TabStop = true;
-            this.radioButtonOptionB.Text = "Option B";
-            this.radioButtonOptionB.UseVisualStyleBackColor = true;
+            this.radioButtonAcceptable.AutoSize = true;
+            this.radioButtonAcceptable.Location = new System.Drawing.Point(6, 48);
+            this.radioButtonAcceptable.Name = "radioButtonAcceptable";
+            this.radioButtonAcceptable.Size = new System.Drawing.Size(84, 21);
+            this.radioButtonAcceptable.TabIndex = 2;
+            this.radioButtonAcceptable.TabStop = true;
+            this.radioButtonAcceptable.Text = "Option B";
+            this.radioButtonAcceptable.UseVisualStyleBackColor = true;
             // 
-            // radioButtonOptionA
+            // radioButtonExceptional
             // 
-            this.radioButtonOptionA.AutoSize = true;
-            this.radioButtonOptionA.Location = new System.Drawing.Point(6, 21);
-            this.radioButtonOptionA.Name = "radioButtonOptionA";
-            this.radioButtonOptionA.Size = new System.Drawing.Size(84, 21);
-            this.radioButtonOptionA.TabIndex = 1;
-            this.radioButtonOptionA.TabStop = true;
-            this.radioButtonOptionA.Text = "Option A";
-            this.radioButtonOptionA.UseVisualStyleBackColor = true;
+            this.radioButtonExceptional.AutoSize = true;
+            this.radioButtonExceptional.Location = new System.Drawing.Point(6, 21);
+            this.radioButtonExceptional.Name = "radioButtonExceptional";
+            this.radioButtonExceptional.Size = new System.Drawing.Size(84, 21);
+            this.radioButtonExceptional.TabIndex = 1;
+            this.radioButtonExceptional.TabStop = true;
+            this.radioButtonExceptional.Text = "Option A";
+            this.radioButtonExceptional.UseVisualStyleBackColor = true;
             // 
             // dataGridViewFeedback
             // 
@@ -111,6 +111,8 @@
             this.dataGridViewFeedback.RowTemplate.Height = 24;
             this.dataGridViewFeedback.Size = new System.Drawing.Size(500, 250);
             this.dataGridViewFeedback.TabIndex = 1;
+            this.dataGridViewFeedback.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFeedback_CellContentClick);
+            this.dataGridViewFeedback.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFeedback_CellLeave);
             // 
             // Add
             // 
@@ -144,10 +146,10 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBoxTitle;
-        private System.Windows.Forms.RadioButton radioButtonOptionD;
-        private System.Windows.Forms.RadioButton radioButtonOptionC;
-        private System.Windows.Forms.RadioButton radioButtonOptionB;
-        private System.Windows.Forms.RadioButton radioButtonOptionA;
+        private System.Windows.Forms.RadioButton radioButtonUnsatisfactory;
+        private System.Windows.Forms.RadioButton radioButtonAmateur;
+        private System.Windows.Forms.RadioButton radioButtonAcceptable;
+        private System.Windows.Forms.RadioButton radioButtonExceptional;
         private System.Windows.Forms.DataGridView dataGridViewFeedback;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Add;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
