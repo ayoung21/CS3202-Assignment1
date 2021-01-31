@@ -84,14 +84,17 @@ namespace AssignmentGrader
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            this.textBoxGradeSummary.Text = "";
+            this.textBoxGradeSummary.Text = string.Empty;
 
             foreach (TabPage currentPage in this.tabControlAssignmentFeedback.TabPages)
             {
                 var control = currentPage.Controls.Cast<GradeFeedback>()
-                                         .FirstOrDefault(x => x is GradeFeedback);
+                                         .FirstOrDefault(x => x != null);
 
-                control.ResetCheckboxes();
+                if (control != null)
+                {
+                    control.ResetCheckboxes();
+                }
             }
         }
 
@@ -101,7 +104,7 @@ namespace AssignmentGrader
             foreach (TabPage currentPage in this.tabControlAssignmentFeedback.TabPages)
             {
                 var control = currentPage.Controls.Cast<GradeFeedback>()
-                                         .FirstOrDefault(x => x is GradeFeedback);
+                                         .FirstOrDefault(x => x != null);
 
                 var comments = control.GetAllComments();
                 foreach (var comment in comments)
@@ -125,7 +128,6 @@ namespace AssignmentGrader
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
-                    // var values = line.Split(',');
                     comments.Add(line);
                 }
             }
@@ -134,7 +136,7 @@ namespace AssignmentGrader
             foreach (TabPage currentPage in this.tabControlAssignmentFeedback.TabPages)
             {
                 var control = currentPage.Controls.Cast<GradeFeedback>()
-                                         .FirstOrDefault(x => x is GradeFeedback);
+                                         .FirstOrDefault(x => x != null);
 
                 control.LoadComments(comments[tabIndex].Split(','));
 

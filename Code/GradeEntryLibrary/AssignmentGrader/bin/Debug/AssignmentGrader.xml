@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AssignmentGrader</name>
+    </assembly>
+    <members>
+        <member name="T:AssignmentGrader.FormAssignmentGrader">
+            <summary>
+                Form Assignment Grader class
+            </summary>
+        </member>
+        <member name="M:AssignmentGrader.FormAssignmentGrader.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:AssignmentGrader.FormAssignmentGrader" /> class.</summary>
+        </member>
+        <member name="F:AssignmentGrader.FormAssignmentGrader.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AssignmentGrader.FormAssignmentGrader.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AssignmentGrader.FormAssignmentGrader.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:AssignmentGrader.IO.FeedbackOutputBuilder">
+            <summary>
+                Feedback Output Builder class
+            </summary>
+        </member>
+        <member name="M:AssignmentGrader.IO.FeedbackOutputBuilder.#ctor(System.Windows.Forms.TabControl.TabPageCollection)">
+            <summary>Initializes a new instance of the <see cref="T:AssignmentGrader.IO.FeedbackOutputBuilder" /> class.</summary>
+            <param name="tabCollection">The tab collection.</param>
+        </member>
+        <member name="M:AssignmentGrader.IO.FeedbackOutputBuilder.GetSummary">
+            <summary>Gets the summary.</summary>
+            <returns>
+                Summary of all values selected
+            </returns>
+        </member>
+        <member name="M:AssignmentGrader.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:AssignmentGrader.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:AssignmentGrader.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:AssignmentGrader.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

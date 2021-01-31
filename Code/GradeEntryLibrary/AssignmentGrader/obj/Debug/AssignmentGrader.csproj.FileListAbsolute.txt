@@ -11,3 +11,18 @@ C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEnt
 C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.csproj.CopyComplete
 C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.exe
 C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.pdb
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\bin\Debug\AssignmentGrader.exe.config
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\bin\Debug\AssignmentGrader.xml
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\bin\Debug\AssignmentGrader.exe
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\bin\Debug\AssignmentGrader.pdb
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\bin\Debug\GradeEntryLibrary.dll
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\bin\Debug\GradeEntryLibrary.pdb
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\bin\Debug\GradeEntryLibrary.xml
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.csprojAssemblyReference.cache
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.FormAssignmentGrader.resources
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.Properties.Resources.resources
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.csproj.GenerateResource.cache
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.csproj.CoreCompileInputs.cache
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.csproj.CopyComplete
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.exe
+D:\School\PC\CS3202-Assignment1\Code\GradeEntryLibrary\AssignmentGrader\obj\Debug\AssignmentGrader.pdb
