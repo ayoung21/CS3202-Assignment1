@@ -116,32 +116,44 @@ namespace AssignmentGrader
             }
 
             File.WriteAllText(@".\\feedback.csv", content);
+
+            var message = "Save Success!";
+            MessageBox.Show(message);
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.clearAllCommentsFromControls();
-
-            IList<string> comments = new List<string>();
-            using (var reader = new StreamReader(@".\\feedback.csv"))
+            try
             {
-                while (!reader.EndOfStream)
+                this.clearAllCommentsFromControls();
+
+                IList<string> comments = new List<string>();
+                using (var reader = new StreamReader(@".\\feedback.csv"))
                 {
-                    var line = reader.ReadLine();
-                    comments.Add(line);
+                    while (!reader.EndOfStream)
+                    {
+                        var line = reader.ReadLine();
+                        comments.Add(line);
+                    }
+                }
+
+                var tabIndex = 0;
+                foreach (TabPage currentPage in this.tabControlAssignmentFeedback.TabPages)
+                {
+                    var control = currentPage.Controls.Cast<GradeFeedback>()
+                        .FirstOrDefault(x => x != null);
+
+                    control.LoadComments(comments[tabIndex].Split(','));
+
+                    tabIndex++;
                 }
             }
-
-            var tabIndex = 0;
-            foreach (TabPage currentPage in this.tabControlAssignmentFeedback.TabPages)
+            catch (FileNotFoundException)
             {
-                var control = currentPage.Controls.Cast<GradeFeedback>()
-                                         .FirstOrDefault(x => x != null);
-
-                control.LoadComments(comments[tabIndex].Split(','));
-
-                tabIndex++;
+                var message = "Error loading file";
+                MessageBox.Show(message);
             }
+
         }
 
         private void clearAllCommentsFromControls()
