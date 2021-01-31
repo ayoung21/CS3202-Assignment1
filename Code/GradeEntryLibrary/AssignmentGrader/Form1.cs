@@ -1,36 +1,42 @@
-﻿using AssignmentGrader.IO;
-using GradeEntryLibrary;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
+using AssignmentGrader.IO;
+using GradeEntryLibrary;
 
 namespace AssignmentGrader
 {
+    /// <summary>
+    ///     Form Assignment Grader class
+    /// </summary>
     public partial class FormAssignmentGrader : Form
     {
-        private FeedbackOutputBuilder outputBuilder;
-        private IList<Control> gradeEntryControls;
+        #region Data members
+
+        private readonly FeedbackOutputBuilder outputBuilder;
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>Initializes a new instance of the <see cref="FormAssignmentGrader" /> class.</summary>
         public FormAssignmentGrader()
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.initializeFunctionalityControl();
             this.initializeImplementationControl();
             this.initializeDocumentationControl();
             this.initializeEvents();
 
-            this.gradeEntryControls = new List<Control>();
             this.outputBuilder = new FeedbackOutputBuilder(this.tabControlAssignmentFeedback.TabPages);
-            this.textBoxGradeSummary.Text = outputBuilder.GetSummary();
+            this.textBoxGradeSummary.Text = this.outputBuilder.GetSummary();
         }
+
+        #endregion
+
+        #region Methods
 
         private void initializeFunctionalityControl()
         {
@@ -68,7 +74,7 @@ namespace AssignmentGrader
 
         private void OnFeedbackChanged(object sender, EventArgs e)
         {
-            this.textBoxGradeSummary.Text = outputBuilder.GetSummary();
+            this.textBoxGradeSummary.Text = this.outputBuilder.GetSummary();
         }
 
         private void buttonCopy_Click(object sender, EventArgs e)
@@ -83,7 +89,7 @@ namespace AssignmentGrader
             foreach (TabPage currentPage in this.tabControlAssignmentFeedback.TabPages)
             {
                 var control = currentPage.Controls.Cast<GradeFeedback>()
-                    .FirstOrDefault(x => x is GradeFeedback);
+                                         .FirstOrDefault(x => x is GradeFeedback);
 
                 control.ResetCheckboxes();
             }
@@ -95,7 +101,7 @@ namespace AssignmentGrader
             foreach (TabPage currentPage in this.tabControlAssignmentFeedback.TabPages)
             {
                 var control = currentPage.Controls.Cast<GradeFeedback>()
-                    .FirstOrDefault(x => x is GradeFeedback);
+                                         .FirstOrDefault(x => x is GradeFeedback);
 
                 var comments = control.GetAllComments();
                 foreach (var comment in comments)
@@ -124,18 +130,16 @@ namespace AssignmentGrader
                 }
             }
 
-            int tabIndex = 0;
+            var tabIndex = 0;
             foreach (TabPage currentPage in this.tabControlAssignmentFeedback.TabPages)
             {
                 var control = currentPage.Controls.Cast<GradeFeedback>()
-                    .FirstOrDefault(x => x is GradeFeedback);
+                                         .FirstOrDefault(x => x is GradeFeedback);
 
                 control.LoadComments(comments[tabIndex].Split(','));
 
                 tabIndex++;
             }
-
-
         }
 
         private void clearAllCommentsFromControls()
@@ -144,5 +148,7 @@ namespace AssignmentGrader
             this.gradeFeedbackFunctionality.DeleteAllComments();
             this.gradeFeedbackDocumentation.DeleteAllComments();
         }
+
+        #endregion
     }
 }

@@ -12,27 +12,13 @@ namespace GradeEntryLibrary
     public partial class GradeFeedback : UserControl
     {
         #region Data members
-
-        private const string DefaultTitle = "Grade";
-        private const string TextExceptional = "Exceptional";
-        private const string TextAcceptable = "Acceptable";
-        private const string TextAmateur = "Amateur";
-        private const string TextUnsatisfactory = "Unsatisfactory";
-        private const int DefaultExceptionalValue = 3;
-        private const int DefaultAcceptableValue = 2;
-        private const int DefaultAmateurValue = 1;
-        private const int DefaultUnsatisfactoryValue = 0;
-        private const int CommentCellIndex = 1;
-
         private int radioButtonExceptionalValue;
         private int radioButtonAcceptableValue;
         private int radioButtonAmateurValue;
         private int radioButtonUnsatisfactoryValue;
-
         #endregion
 
         #region Properties
-
         /// <summary>Gets the maximum points.</summary>
         /// <value>The maximum points.</value>
         public int MaxPoints { get; private set; }
@@ -47,7 +33,7 @@ namespace GradeEntryLibrary
                 this.MaxPoints = value;
                 this.radioButtonExceptionalValue = value;
                 this.radioButtonExceptional.Tag = value;
-                this.radioButtonExceptional.Text = $@"({value}) {TextExceptional}";
+                this.radioButtonExceptional.Text = $@"({value}) {Constants.Constants.TextExceptional}";
             }
         }
 
@@ -60,7 +46,7 @@ namespace GradeEntryLibrary
             {
                 this.radioButtonAcceptableValue = value;
                 this.radioButtonAcceptable.Tag = value;
-                this.radioButtonAcceptable.Text = $@"({value}) {TextAcceptable}";
+                this.radioButtonAcceptable.Text = $@"({value}) {Constants.Constants.TextAcceptable}";
             }
         }
 
@@ -73,7 +59,7 @@ namespace GradeEntryLibrary
             {
                 this.radioButtonAmateurValue = value;
                 this.radioButtonAmateur.Tag = value;
-                this.radioButtonAmateur.Text = $@"({value}) {TextAmateur}";
+                this.radioButtonAmateur.Text = $@"({value}) {Constants.Constants.TextAmateur}";
             }
         }
 
@@ -86,19 +72,17 @@ namespace GradeEntryLibrary
             {
                 this.radioButtonUnsatisfactoryValue = value;
                 this.radioButtonUnsatisfactory.Tag = value;
-                this.radioButtonUnsatisfactory.Text = $@"({value}) {TextUnsatisfactory}";
+                this.radioButtonUnsatisfactory.Text = $@"({value}) {Constants.Constants.TextUnsatisfactory}";
             }
         }
-
         #endregion
 
         #region Constructors
-
         /// <summary>Initializes a new instance of the <see cref="GradeFeedback" /> class.</summary>
         public GradeFeedback()
         {
             this.InitializeComponent();
-            this.gradeGroupBox.Text = DefaultTitle;
+            this.gradeGroupBox.Text = Constants.Constants.DefaultTitle;
 
             this.radioButtonExceptional.Checked = true;
             this.setDefaultTagsForRadioButtons();
@@ -107,7 +91,6 @@ namespace GradeEntryLibrary
         #endregion
 
         #region Methods
-
         /// <summary>Occurs when [feedback changed].</summary>
         public event EventHandler<EventArgs> FeedbackChanged;
 
@@ -166,12 +149,9 @@ namespace GradeEntryLibrary
         /// <param name="comments">The comments.</param>
         public void LoadComments(IList<string> comments)
         {
-            this.dataGridViewFeedback.Rows.Clear();
-            this.dataGridViewFeedback.Rows.Add(comments.Count() + 1);
-
-            for (var i = 0; i < comments.Count(); i++)
+            foreach (var comment in comments)
             {
-                this.dataGridViewFeedback.Rows[i].Cells[CommentCellIndex].Value = comments[i];
+                this.AddComment(comment);
             }
         }
 
@@ -186,14 +166,12 @@ namespace GradeEntryLibrary
             return checkedButton;
         }
 
-
         /// <summary>Adds the comment.</summary>
         /// <param name="comment">The comment.</param>
         public void AddComment(string comment)
         {
-            const int COMMENT_CELL = 1;
             var newRowIndex = this.dataGridViewFeedback.Rows.Add();
-            this.dataGridViewFeedback.Rows[newRowIndex].Cells[COMMENT_CELL].Value = comment;
+            this.dataGridViewFeedback.Rows[newRowIndex].Cells[Constants.Constants.CommentCellIndex].Value = comment;
         }
 
         /// <summary>Selects all checkboxes.</summary>
@@ -232,10 +210,10 @@ namespace GradeEntryLibrary
 
         private void setDefaultTagsForRadioButtons()
         {
-            this.RadioButtonExceptionalValue = DefaultExceptionalValue;
-            this.RadioButtonAcceptableValue = DefaultAcceptableValue;
-            this.RadioButtonAmateurValue = DefaultAmateurValue;
-            this.RadioButtonUnsatisfactoryValue = DefaultUnsatisfactoryValue;
+            this.RadioButtonExceptionalValue = Constants.Constants.DefaultExceptionalValue;
+            this.RadioButtonAcceptableValue = Constants.Constants.DefaultAcceptableValue;
+            this.RadioButtonAmateurValue = Constants.Constants.DefaultAmateurValue;
+            this.RadioButtonUnsatisfactoryValue = Constants.Constants.DefaultUnsatisfactoryValue;
         }
 
         private void dataGridViewFeedback_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -259,5 +237,17 @@ namespace GradeEntryLibrary
         }
 
         #endregion
+
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.SelectAllCheckboxes();
+            this.onFeedbackChanged();
+        }
+
+        private void deselectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ResetCheckboxes();
+            this.onFeedbackChanged();
+        }
     }
 }

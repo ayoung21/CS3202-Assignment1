@@ -1,9 +1,6 @@
 ﻿using GradeEntryLibrary;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.TabControl;
 
@@ -25,13 +22,15 @@ namespace AssignmentGrader.IO
             foreach (TabPage currentPage in this.tabCollection)
             {
                 var control = currentPage.Controls.Cast<GradeFeedback>()
-                    .FirstOrDefault(x => x is GradeFeedback);
+                                         .FirstOrDefault(x => x is GradeFeedback);
+                if (control != null)
+                {
+                    var selectedButton = control.GetSelectedRadioButton();
 
-                var selectedButton = control.GetSelectedRadioButton();
-
-                summary += $"{currentPage.Text} [{selectedButton.Tag} / {control.MaxPoints}] {Environment.NewLine}";
-                summary += this.buildComments(control);
-                summary += Environment.NewLine;
+                    summary += $"{currentPage.Text} [{selectedButton.Tag} / {control.MaxPoints}] {Environment.NewLine}";
+                    summary += this.buildComments(control);
+                    summary += Environment.NewLine;
+                }
             }
 
             return summary;
