@@ -53,6 +53,37 @@ namespace GradeEntryLibrary
             return comments;
         }
 
+        public List<string> GetAllComments()
+        {
+            var comments = new List<string>();
+            foreach (DataGridViewRow row in this.dataGridViewFeedback.Rows)
+            {
+                DataGridViewTextBoxCell textCell = (DataGridViewTextBoxCell)row.Cells[1];
+                comments.Add(this.GetValueFromCell(textCell));
+            }
+
+            return comments;
+        }
+
+        public void DeleteAllComments()
+        {
+            this.dataGridViewFeedback.Rows.Clear();
+            this.dataGridViewFeedback.Refresh();
+        }
+
+        public void LoadComments(IList<string> comments)
+        {
+            var COMMENT_CELL = 1;
+            this.DefaultComments.Clear();
+            this.dataGridViewFeedback.Rows.Clear();
+            this.dataGridViewFeedback.Rows.Add(comments.Count() + 1);
+
+            for (int i = 0; i < comments.Count(); i++)
+            {
+                this.dataGridViewFeedback.Rows[i].Cells[COMMENT_CELL].Value = comments[i];
+            }
+        }
+
         private string GetValueFromCell(DataGridViewTextBoxCell cell)
         {
             var cellValue = "";
@@ -127,7 +158,7 @@ namespace GradeEntryLibrary
             InitializeComponent();
             this.gradeGroupBox.Text = DEFUALT_TITLE;
             this.DefaultComments = new List<string>();
-            this.dataGridViewFeedback.Rows.Add(NUMBER_OF_DEFAULT_COMMENT_ROWS);
+            // this.dataGridViewFeedback.Rows.Add(NUMBER_OF_DEFAULT_COMMENT_ROWS);
 
             this.radioButtonExceptional.Checked = true;
             this.setDefaultTagsForRadioButtons();
@@ -136,10 +167,29 @@ namespace GradeEntryLibrary
         public void AddComment(string comment)
         {
             const int COMMENT_CELL = 1;
-            this.DefaultComments.Add(comment);
-            for (int i = 0; i < this.DefaultComments.Count(); i++)
+            // this.DefaultComments.Add(comment);
+
+            var newRowIndex = this.dataGridViewFeedback.Rows.Add();
+            this.dataGridViewFeedback.Rows[newRowIndex].Cells[COMMENT_CELL].Value = comment;
+            //for (int i = 0; i < this.DefaultComments.Count(); i++)
+            //{
+            //    this.dataGridViewFeedback.Rows[i].Cells[COMMENT_CELL].Value = this.DefaultComments[i];
+            //}
+        }
+
+        public void SelectAllCheckboxes()
+        {
+            foreach (DataGridViewRow row in this.dataGridViewFeedback.Rows)
             {
-                this.dataGridViewFeedback.Rows[i].Cells[COMMENT_CELL].Value = this.DefaultComments[i];
+                ((DataGridViewCheckBoxCell)row.Cells[0]).Value = true;
+            }
+        }
+
+        public void ResetCheckboxes()
+        {
+            foreach (DataGridViewRow row in this.dataGridViewFeedback.Rows)
+            {
+                ((DataGridViewCheckBoxCell)row.Cells[0]).Value = false;
             }
         }
 

@@ -31,19 +31,24 @@ namespace AssignmentGrader
         {
             this.tabControlAssignmentFeedback = new System.Windows.Forms.TabControl();
             this.tabPageFunctionality = new System.Windows.Forms.TabPage();
+            this.gradeFeedbackFunctionality = new GradeEntryLibrary.GradeFeedback();
             this.tabPageImplementation = new System.Windows.Forms.TabPage();
+            this.gradeFeedbackImplementation = new GradeEntryLibrary.GradeFeedback();
             this.tabPageDocumentation = new System.Windows.Forms.TabPage();
+            this.gradeFeedbackDocumentation = new GradeEntryLibrary.GradeFeedback();
             this.textBoxGradeSummary = new System.Windows.Forms.TextBox();
             this.buttonCopy = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
             this.labelGradeSummary = new System.Windows.Forms.Label();
-            this.gradeFeedbackFunctionality = new GradeEntryLibrary.GradeFeedback();
-            this.gradeFeedbackImplementation = new GradeEntryLibrary.GradeFeedback();
-            this.gradeFeedbackDocumentation = new GradeEntryLibrary.GradeFeedback();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlAssignmentFeedback.SuspendLayout();
             this.tabPageFunctionality.SuspendLayout();
             this.tabPageImplementation.SuspendLayout();
             this.tabPageDocumentation.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlAssignmentFeedback
@@ -51,7 +56,7 @@ namespace AssignmentGrader
             this.tabControlAssignmentFeedback.Controls.Add(this.tabPageFunctionality);
             this.tabControlAssignmentFeedback.Controls.Add(this.tabPageImplementation);
             this.tabControlAssignmentFeedback.Controls.Add(this.tabPageDocumentation);
-            this.tabControlAssignmentFeedback.Location = new System.Drawing.Point(12, 12);
+            this.tabControlAssignmentFeedback.Location = new System.Drawing.Point(12, 48);
             this.tabControlAssignmentFeedback.Name = "tabControlAssignmentFeedback";
             this.tabControlAssignmentFeedback.SelectedIndex = 0;
             this.tabControlAssignmentFeedback.Size = new System.Drawing.Size(776, 351);
@@ -68,67 +73,6 @@ namespace AssignmentGrader
             this.tabPageFunctionality.Text = "Functionality";
             this.tabPageFunctionality.UseVisualStyleBackColor = true;
             // 
-            // tabPageImplementation
-            // 
-            this.tabPageImplementation.Controls.Add(this.gradeFeedbackImplementation);
-            this.tabPageImplementation.Location = new System.Drawing.Point(4, 25);
-            this.tabPageImplementation.Name = "tabPageImplementation";
-            this.tabPageImplementation.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageImplementation.Size = new System.Drawing.Size(768, 322);
-            this.tabPageImplementation.TabIndex = 1;
-            this.tabPageImplementation.Text = "Implementation";
-            this.tabPageImplementation.UseVisualStyleBackColor = true;
-            // 
-            // tabPageDocumentation
-            // 
-            this.tabPageDocumentation.Controls.Add(this.gradeFeedbackDocumentation);
-            this.tabPageDocumentation.Location = new System.Drawing.Point(4, 25);
-            this.tabPageDocumentation.Name = "tabPageDocumentation";
-            this.tabPageDocumentation.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDocumentation.Size = new System.Drawing.Size(768, 322);
-            this.tabPageDocumentation.TabIndex = 2;
-            this.tabPageDocumentation.Text = "Documentation";
-            this.tabPageDocumentation.UseVisualStyleBackColor = true;
-            // 
-            // textBoxGradeSummary
-            // 
-            this.textBoxGradeSummary.Location = new System.Drawing.Point(12, 416);
-            this.textBoxGradeSummary.Multiline = true;
-            this.textBoxGradeSummary.Name = "textBoxGradeSummary";
-            this.textBoxGradeSummary.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxGradeSummary.Size = new System.Drawing.Size(772, 135);
-            this.textBoxGradeSummary.TabIndex = 1;
-            // 
-            // buttonCopy
-            // 
-            this.buttonCopy.Location = new System.Drawing.Point(238, 578);
-            this.buttonCopy.Name = "buttonCopy";
-            this.buttonCopy.Size = new System.Drawing.Size(100, 40);
-            this.buttonCopy.TabIndex = 2;
-            this.buttonCopy.Text = "Copy";
-            this.buttonCopy.UseVisualStyleBackColor = true;
-            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
-            // 
-            // buttonClear
-            // 
-            this.buttonClear.Location = new System.Drawing.Point(415, 578);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(100, 40);
-            this.buttonClear.TabIndex = 3;
-            this.buttonClear.Text = "Clear";
-            this.buttonClear.UseVisualStyleBackColor = true;
-            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
-            // 
-            // labelGradeSummary
-            // 
-            this.labelGradeSummary.AutoSize = true;
-            this.labelGradeSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGradeSummary.Location = new System.Drawing.Point(12, 388);
-            this.labelGradeSummary.Name = "labelGradeSummary";
-            this.labelGradeSummary.Size = new System.Drawing.Size(131, 20);
-            this.labelGradeSummary.TabIndex = 4;
-            this.labelGradeSummary.Text = "Grade Summary";
-            // 
             // gradeFeedbackFunctionality
             // 
             this.gradeFeedbackFunctionality.Location = new System.Drawing.Point(12, 6);
@@ -139,6 +83,17 @@ namespace AssignmentGrader
             this.gradeFeedbackFunctionality.RadioButtonUnsatisfactoryValue = 0;
             this.gradeFeedbackFunctionality.Size = new System.Drawing.Size(750, 300);
             this.gradeFeedbackFunctionality.TabIndex = 0;
+            // 
+            // tabPageImplementation
+            // 
+            this.tabPageImplementation.Controls.Add(this.gradeFeedbackImplementation);
+            this.tabPageImplementation.Location = new System.Drawing.Point(4, 25);
+            this.tabPageImplementation.Name = "tabPageImplementation";
+            this.tabPageImplementation.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageImplementation.Size = new System.Drawing.Size(768, 322);
+            this.tabPageImplementation.TabIndex = 1;
+            this.tabPageImplementation.Text = "Implementation";
+            this.tabPageImplementation.UseVisualStyleBackColor = true;
             // 
             // gradeFeedbackImplementation
             // 
@@ -151,6 +106,17 @@ namespace AssignmentGrader
             this.gradeFeedbackImplementation.Size = new System.Drawing.Size(750, 300);
             this.gradeFeedbackImplementation.TabIndex = 0;
             // 
+            // tabPageDocumentation
+            // 
+            this.tabPageDocumentation.Controls.Add(this.gradeFeedbackDocumentation);
+            this.tabPageDocumentation.Location = new System.Drawing.Point(4, 25);
+            this.tabPageDocumentation.Name = "tabPageDocumentation";
+            this.tabPageDocumentation.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDocumentation.Size = new System.Drawing.Size(768, 322);
+            this.tabPageDocumentation.TabIndex = 2;
+            this.tabPageDocumentation.Text = "Documentation";
+            this.tabPageDocumentation.UseVisualStyleBackColor = true;
+            // 
             // gradeFeedbackDocumentation
             // 
             this.gradeFeedbackDocumentation.Location = new System.Drawing.Point(12, 6);
@@ -162,22 +128,99 @@ namespace AssignmentGrader
             this.gradeFeedbackDocumentation.Size = new System.Drawing.Size(750, 300);
             this.gradeFeedbackDocumentation.TabIndex = 0;
             // 
+            // textBoxGradeSummary
+            // 
+            this.textBoxGradeSummary.Location = new System.Drawing.Point(12, 470);
+            this.textBoxGradeSummary.Multiline = true;
+            this.textBoxGradeSummary.Name = "textBoxGradeSummary";
+            this.textBoxGradeSummary.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxGradeSummary.Size = new System.Drawing.Size(772, 135);
+            this.textBoxGradeSummary.TabIndex = 1;
+            // 
+            // buttonCopy
+            // 
+            this.buttonCopy.Location = new System.Drawing.Point(238, 632);
+            this.buttonCopy.Name = "buttonCopy";
+            this.buttonCopy.Size = new System.Drawing.Size(100, 40);
+            this.buttonCopy.TabIndex = 2;
+            this.buttonCopy.Text = "Copy";
+            this.buttonCopy.UseVisualStyleBackColor = true;
+            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(415, 632);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(100, 40);
+            this.buttonClear.TabIndex = 3;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // labelGradeSummary
+            // 
+            this.labelGradeSummary.AutoSize = true;
+            this.labelGradeSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGradeSummary.Location = new System.Drawing.Point(12, 442);
+            this.labelGradeSummary.Name = "labelGradeSummary";
+            this.labelGradeSummary.Size = new System.Drawing.Size(131, 20);
+            this.labelGradeSummary.TabIndex = 4;
+            this.labelGradeSummary.Text = "Grade Summary";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.loadToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
+            // 
             // FormAssignmentGrader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 633);
+            this.ClientSize = new System.Drawing.Size(800, 686);
             this.Controls.Add(this.labelGradeSummary);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonCopy);
             this.Controls.Add(this.textBoxGradeSummary);
             this.Controls.Add(this.tabControlAssignmentFeedback);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormAssignmentGrader";
             this.Text = "Assignment Grader by Andrew Young";
             this.tabControlAssignmentFeedback.ResumeLayout(false);
             this.tabPageFunctionality.ResumeLayout(false);
             this.tabPageImplementation.ResumeLayout(false);
             this.tabPageDocumentation.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,6 +239,10 @@ namespace AssignmentGrader
         private System.Windows.Forms.Button buttonCopy;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Label labelGradeSummary;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
     }
 }
 
