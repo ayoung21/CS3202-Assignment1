@@ -32,14 +32,14 @@ namespace AssignmentGrader
             this.tabControlAssignmentFeedback = new System.Windows.Forms.TabControl();
             this.tabPageFunctionality = new System.Windows.Forms.TabPage();
             this.tabPageImplementation = new System.Windows.Forms.TabPage();
-            this.gradeFeedbackFunctionality = new GradeEntryLibrary.GradeFeedback();
             this.tabPageDocumentation = new System.Windows.Forms.TabPage();
-            this.gradeFeedbackImplementation = new GradeEntryLibrary.GradeFeedback();
-            this.gradeFeedbackDocumentation = new GradeEntryLibrary.GradeFeedback();
             this.textBoxGradeSummary = new System.Windows.Forms.TextBox();
             this.buttonCopy = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
             this.labelGradeSummary = new System.Windows.Forms.Label();
+            this.gradeFeedbackFunctionality = new GradeEntryLibrary.GradeFeedback();
+            this.gradeFeedbackImplementation = new GradeEntryLibrary.GradeFeedback();
+            this.gradeFeedbackDocumentation = new GradeEntryLibrary.GradeFeedback();
             this.tabControlAssignmentFeedback.SuspendLayout();
             this.tabPageFunctionality.SuspendLayout();
             this.tabPageImplementation.SuspendLayout();
@@ -79,13 +79,6 @@ namespace AssignmentGrader
             this.tabPageImplementation.Text = "Implementation";
             this.tabPageImplementation.UseVisualStyleBackColor = true;
             // 
-            // gradeFeedbackFunctionality
-            // 
-            this.gradeFeedbackFunctionality.Location = new System.Drawing.Point(12, 6);
-            this.gradeFeedbackFunctionality.Name = "gradeFeedbackFunctionality";
-            this.gradeFeedbackFunctionality.Size = new System.Drawing.Size(750, 300);
-            this.gradeFeedbackFunctionality.TabIndex = 0;
-            // 
             // tabPageDocumentation
             // 
             this.tabPageDocumentation.Controls.Add(this.gradeFeedbackDocumentation);
@@ -96,20 +89,6 @@ namespace AssignmentGrader
             this.tabPageDocumentation.TabIndex = 2;
             this.tabPageDocumentation.Text = "Documentation";
             this.tabPageDocumentation.UseVisualStyleBackColor = true;
-            // 
-            // gradeFeedbackImplementation
-            // 
-            this.gradeFeedbackImplementation.Location = new System.Drawing.Point(12, 6);
-            this.gradeFeedbackImplementation.Name = "gradeFeedbackImplementation";
-            this.gradeFeedbackImplementation.Size = new System.Drawing.Size(750, 300);
-            this.gradeFeedbackImplementation.TabIndex = 0;
-            // 
-            // gradeFeedbackDocumentation
-            // 
-            this.gradeFeedbackDocumentation.Location = new System.Drawing.Point(12, 6);
-            this.gradeFeedbackDocumentation.Name = "gradeFeedbackDocumentation";
-            this.gradeFeedbackDocumentation.Size = new System.Drawing.Size(750, 300);
-            this.gradeFeedbackDocumentation.TabIndex = 0;
             // 
             // textBoxGradeSummary
             // 
@@ -128,6 +107,7 @@ namespace AssignmentGrader
             this.buttonCopy.TabIndex = 2;
             this.buttonCopy.Text = "Copy";
             this.buttonCopy.UseVisualStyleBackColor = true;
+            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
             // 
             // buttonClear
             // 
@@ -137,6 +117,7 @@ namespace AssignmentGrader
             this.buttonClear.TabIndex = 3;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // labelGradeSummary
             // 
@@ -147,6 +128,39 @@ namespace AssignmentGrader
             this.labelGradeSummary.Size = new System.Drawing.Size(131, 20);
             this.labelGradeSummary.TabIndex = 4;
             this.labelGradeSummary.Text = "Grade Summary";
+            // 
+            // gradeFeedbackFunctionality
+            // 
+            this.gradeFeedbackFunctionality.Location = new System.Drawing.Point(12, 6);
+            this.gradeFeedbackFunctionality.Name = "gradeFeedbackFunctionality";
+            this.gradeFeedbackFunctionality.RadioButtonAcceptableValue = 2;
+            this.gradeFeedbackFunctionality.RadioButtonAmateurValue = 1;
+            this.gradeFeedbackFunctionality.RadioButtonExceptionalValue = 3;
+            this.gradeFeedbackFunctionality.RadioButtonUnsatisfactoryValue = 0;
+            this.gradeFeedbackFunctionality.Size = new System.Drawing.Size(750, 300);
+            this.gradeFeedbackFunctionality.TabIndex = 0;
+            // 
+            // gradeFeedbackImplementation
+            // 
+            this.gradeFeedbackImplementation.Location = new System.Drawing.Point(12, 6);
+            this.gradeFeedbackImplementation.Name = "gradeFeedbackImplementation";
+            this.gradeFeedbackImplementation.RadioButtonAcceptableValue = 2;
+            this.gradeFeedbackImplementation.RadioButtonAmateurValue = 1;
+            this.gradeFeedbackImplementation.RadioButtonExceptionalValue = 3;
+            this.gradeFeedbackImplementation.RadioButtonUnsatisfactoryValue = 0;
+            this.gradeFeedbackImplementation.Size = new System.Drawing.Size(750, 300);
+            this.gradeFeedbackImplementation.TabIndex = 0;
+            // 
+            // gradeFeedbackDocumentation
+            // 
+            this.gradeFeedbackDocumentation.Location = new System.Drawing.Point(12, 6);
+            this.gradeFeedbackDocumentation.Name = "gradeFeedbackDocumentation";
+            this.gradeFeedbackDocumentation.RadioButtonAcceptableValue = 2;
+            this.gradeFeedbackDocumentation.RadioButtonAmateurValue = 1;
+            this.gradeFeedbackDocumentation.RadioButtonExceptionalValue = 3;
+            this.gradeFeedbackDocumentation.RadioButtonUnsatisfactoryValue = 0;
+            this.gradeFeedbackDocumentation.Size = new System.Drawing.Size(750, 300);
+            this.gradeFeedbackDocumentation.TabIndex = 0;
             // 
             // FormAssignmentGrader
             // 

@@ -60,5 +60,15 @@ namespace AssignmentGrader
         {
             this.textBoxGradeSummary.Text = outputBuilder.GetSummary();
         }
+
+        private void buttonCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(this.textBoxGradeSummary.Text);
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            this.textBoxGradeSummary.Text = "";
+        }
     }
 }
