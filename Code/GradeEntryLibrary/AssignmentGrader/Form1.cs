@@ -125,8 +125,6 @@ namespace AssignmentGrader
         {
             try
             {
-                this.clearAllCommentsFromControls();
-
                 IList<string> comments = new List<string>();
                 using (var reader = new StreamReader(@".\\feedback.csv"))
                 {
@@ -136,6 +134,8 @@ namespace AssignmentGrader
                         comments.Add(line);
                     }
                 }
+
+                this.clearAllCommentsFromControls();
 
                 var tabIndex = 0;
                 foreach (TabPage currentPage in this.tabControlAssignmentFeedback.TabPages)
