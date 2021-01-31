@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GradeEntryLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:GradeEntryLibrary.GradeFeedback">
+            <summary>
+              GradeFeedback class
+            </summary>
+        </member>
+        <member name="P:GradeEntryLibrary.GradeFeedback.MaxPoints">
+            <summary>Gets the maximum points.</summary>
+            <value>The maximum points.</value>
+        </member>
+        <member name="P:GradeEntryLibrary.GradeFeedback.RadioButtonExceptionalValue">
+            <summary>Gets or sets the RadioButton exceptional value.</summary>
+            <value>The RadioButton exceptional value.</value>
+        </member>
+        <member name="P:GradeEntryLibrary.GradeFeedback.RadioButtonAcceptableValue">
+            <summary>Gets or sets the RadioButton acceptable value.</summary>
+            <value>The RadioButton acceptable value.</value>
+        </member>
+        <member name="P:GradeEntryLibrary.GradeFeedback.RadioButtonAmateurValue">
+            <summary>Gets or sets the RadioButton amateur value.</summary>
+            <value>The RadioButton amateur value.</value>
+        </member>
+        <member name="P:GradeEntryLibrary.GradeFeedback.RadioButtonUnsatisfactoryValue">
+            <summary>Gets or sets the RadioButton unsatisfactory value.</summary>
+            <value>The RadioButton unsatisfactory value.</value>
+        </member>
+        <member name="M:GradeEntryLibrary.GradeFeedback.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:GradeEntryLibrary.GradeFeedback" /> class.</summary>
+        </member>
+        <member name="E:GradeEntryLibrary.GradeFeedback.FeedbackChanged">
+            <summary>Occurs when [feedback changed].</summary>
+        </member>
+        <member name="M:GradeEntryLibrary.GradeFeedback.GetSelectedComments">
+            <summary>Gets the selected comments.</summary>
+            <returns>
+              List of currently selected comments
+            </returns>
+        </member>
+        <member name="M:GradeEntryLibrary.GradeFeedback.GetAllComments">
+            <summary>Gets all comments.</summary>
+            <returns>
+              List of ALL comments
+            </returns>
+        </member>
+        <member name="M:GradeEntryLibrary.GradeFeedback.DeleteAllComments">
+            <summary>Deletes all comments.</summary>
+        </member>
+        <member name="M:GradeEntryLibrary.GradeFeedback.LoadComments(System.Collections.Generic.IList{System.String})">
+            <summary>Loads the comments.</summary>
+            <param name="comments">The comments.</param>
+        </member>
+        <member name="M:GradeEntryLibrary.GradeFeedback.GetSelectedRadioButton">
+            <summary>Gets the selected RadioButton.</summary>
+            <returns>
+              Selected Radio Button
+            </returns>
+        </member>
+        <member name="M:GradeEntryLibrary.GradeFeedback.AddComment(System.String)">
+            <summary>Adds the comment.</summary>
+            <param name="comment">The comment.</param>
+        </member>
+        <member name="M:GradeEntryLibrary.GradeFeedback.SelectAllCheckboxes">
+            <summary>Selects all checkboxes.</summary>
+        </member>
+        <member name="M:GradeEntryLibrary.GradeFeedback.ResetCheckboxes">
+            <summary>Resets the checkboxes.</summary>
+        </member>
+        <member name="M:GradeEntryLibrary.GradeFeedback.GetValueFromCell(System.Windows.Forms.DataGridViewTextBoxCell)">
+            <summary>Gets the value from cell.</summary>
+            <param name="cell">The cell.</param>
+            <returns>
+              Current value from cell
+            </returns>
+        </member>
+        <member name="F:GradeEntryLibrary.GradeFeedback.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GradeEntryLibrary.GradeFeedback.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GradeEntryLibrary.GradeFeedback.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>
