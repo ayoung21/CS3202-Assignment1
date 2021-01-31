@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace GradeEntryLibrary
 {
@@ -29,12 +30,56 @@ namespace GradeEntryLibrary
         private int _radioButtonAmateurValue;
         private int _radioButtonUnsatisfactoryValue;
 
+        public event EventHandler<EventArgs> FeedbackChanged;
+
+        private void onFeedbackChanged()
+        {
+            this.FeedbackChanged?.Invoke(this, new EventArgs());
+        }
+
+        public List<string> GetSelectedComments()
+        {
+            var comments = new List<string>();
+            foreach (DataGridViewRow row in this.dataGridViewFeedback.Rows)
+            {
+                DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)row.Cells[0];
+                if (Convert.ToBoolean(cell.EditedFormattedValue))
+                {
+                    DataGridViewTextBoxCell textCell = (DataGridViewTextBoxCell)row.Cells[1];
+                    comments.Add(this.GetValueFromCell(textCell));
+                }
+            }
+
+            return comments;
+        }
+
+        private string GetValueFromCell(DataGridViewTextBoxCell cell)
+        {
+            var cellValue = "";
+            if (cell.Value != null)
+            {
+                cellValue =  cell.Value.ToString();
+            }
+
+            return cellValue;
+        }
+
+        public RadioButton GetSelectedRadioButton()
+        {
+            var checkedButton = this.gradeGroupBox.Controls.OfType<RadioButton>().
+                FirstOrDefault(r => r.Checked);
+
+            return checkedButton;
+        }
+
         #region Properties
+        public int MaxPoints { get; private set; }
         public int RadioButtonExceptionalValue
         {
             get => _radioButtonExceptionalValue;
             set
             {
+                this.MaxPoints = value;
                 this._radioButtonExceptionalValue = value;
                 this.radioButtonExceptional.Tag = value;
                 this.radioButtonExceptional.Text = $"({value}) {TEXT_EXCEPTIONAL}";
@@ -80,10 +125,11 @@ namespace GradeEntryLibrary
         public GradeFeedback()
         {
             InitializeComponent();
-            this.groupBoxTitle.Text = DEFUALT_TITLE;
+            this.gradeGroupBox.Text = DEFUALT_TITLE;
             this.DefaultComments = new List<string>();
             this.dataGridViewFeedback.Rows.Add(NUMBER_OF_DEFAULT_COMMENT_ROWS);
 
+            this.radioButtonExceptional.Checked = true;
             this.setDefaultTagsForRadioButtons();
         }
 
@@ -105,14 +151,29 @@ namespace GradeEntryLibrary
             this.RadioButtonUnsatisfactoryValue = DEFAULT_UNSATISFACTORY_VALUE;
         }
 
-        private void dataGridViewFeedback_CellLeave(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewFeedback_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            // TODO: 
+            this.onFeedbackChanged();
+        }
+
+        private void dataGridViewFeedback_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.onFeedbackChanged();
+        }
+
+        private void radioButton_Click(object sender, EventArgs e)
+        {
+            this.onFeedbackChanged();
+        }
+
+        private void dataGridViewFeedback_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.onFeedbackChanged();
         }
     }
 
-    public class FeedbackEventArgs : EventArgs
+    public class MessageSentEventArgs : EventArgs
     {
-        public string Feedback { get; set; }
+        public string Message { get; set; }
     }
 }

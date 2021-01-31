@@ -18,6 +18,51 @@ namespace AssignmentGrader
             this.initializeFunctionalityControl();
             this.initializeImplementationControl();
             this.initializeDocumentationControl();
+
+            this.gradeFeedbackFunctionality.FeedbackChanged += this.OnFeedbackChanged; 
+            this.gradeFeedbackImplementation.FeedbackChanged += this.OnFeedbackChanged; 
+            this.gradeFeedbackDocumentation.FeedbackChanged += this.OnFeedbackChanged; 
+        }
+
+        private void OnFeedbackChanged(object sender, EventArgs e)
+        {
+            var output = "";
+            var list = this.gradeFeedbackImplementation.GetSelectedComments();
+
+            foreach (TabPage currentPage in this.tabControlAssignmentFeedback.TabPages)
+            {
+                var control =
+                    currentPage.Controls.Cast<GradeEntryLibrary.GradeFeedback>().FirstOrDefault(
+                    x => x is GradeEntryLibrary.GradeFeedback);
+
+                var selectedButton = control.GetSelectedRadioButton();
+
+                output += $"{currentPage.Text} [{selectedButton.Tag} / {control.MaxPoints}] {Environment.NewLine}";
+
+
+
+                //foreach (var currentFeedback in control.GetSelectedComments())
+                //{
+                //    list.Add(currentFeedback);
+                //}
+
+                foreach (var currentFeedback in control.GetSelectedComments())
+                {
+                    output += currentFeedback + Environment.NewLine;
+                }
+
+                output += Environment.NewLine;
+            }
+
+
+
+            //var comments = "";
+            //foreach(var feedback in list)
+            //{
+            //    comments += feedback + Environment.NewLine;
+            //}
+
+            this.textBoxGradeSummary.Text = output;
         }
 
         private void initializeFunctionalityControl()
@@ -43,9 +88,8 @@ namespace AssignmentGrader
 
         private void initializeDocumentationControl()
         {
-            this.gradeFeedbackDocumentation.AddComment("Well done on design and implementation.");
-            this.gradeFeedbackDocumentation.AddComment("Violations of SRP.");
-            this.gradeFeedbackDocumentation.AddComment("Violations of DRY");
+            this.gradeFeedbackDocumentation.AddComment("Well done.");
+            this.gradeFeedbackDocumentation.AddComment("Missing lots of required documentation.");
         }
     }
 }

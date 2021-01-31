@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBoxTitle = new System.Windows.Forms.GroupBox();
+            this.gradeGroupBox = new System.Windows.Forms.GroupBox();
             this.radioButtonUnsatisfactory = new System.Windows.Forms.RadioButton();
             this.radioButtonAmateur = new System.Windows.Forms.RadioButton();
             this.radioButtonAcceptable = new System.Windows.Forms.RadioButton();
@@ -36,22 +36,22 @@
             this.dataGridViewFeedback = new System.Windows.Forms.DataGridView();
             this.Add = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBoxTitle.SuspendLayout();
+            this.gradeGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFeedback)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBoxTitle
+            // gradeGroupBox
             // 
-            this.groupBoxTitle.Controls.Add(this.radioButtonUnsatisfactory);
-            this.groupBoxTitle.Controls.Add(this.radioButtonAmateur);
-            this.groupBoxTitle.Controls.Add(this.radioButtonAcceptable);
-            this.groupBoxTitle.Controls.Add(this.radioButtonExceptional);
-            this.groupBoxTitle.Location = new System.Drawing.Point(20, 20);
-            this.groupBoxTitle.Name = "groupBoxTitle";
-            this.groupBoxTitle.Size = new System.Drawing.Size(200, 128);
-            this.groupBoxTitle.TabIndex = 0;
-            this.groupBoxTitle.TabStop = false;
-            this.groupBoxTitle.Text = "Title";
+            this.gradeGroupBox.Controls.Add(this.radioButtonUnsatisfactory);
+            this.gradeGroupBox.Controls.Add(this.radioButtonAmateur);
+            this.gradeGroupBox.Controls.Add(this.radioButtonAcceptable);
+            this.gradeGroupBox.Controls.Add(this.radioButtonExceptional);
+            this.gradeGroupBox.Location = new System.Drawing.Point(20, 20);
+            this.gradeGroupBox.Name = "gradeGroupBox";
+            this.gradeGroupBox.Size = new System.Drawing.Size(200, 128);
+            this.gradeGroupBox.TabIndex = 0;
+            this.gradeGroupBox.TabStop = false;
+            this.gradeGroupBox.Text = "Title";
             // 
             // radioButtonUnsatisfactory
             // 
@@ -63,6 +63,7 @@
             this.radioButtonUnsatisfactory.TabStop = true;
             this.radioButtonUnsatisfactory.Text = "Option D";
             this.radioButtonUnsatisfactory.UseVisualStyleBackColor = true;
+            this.radioButtonUnsatisfactory.Click += new System.EventHandler(this.radioButton_Click);
             // 
             // radioButtonAmateur
             // 
@@ -74,6 +75,7 @@
             this.radioButtonAmateur.TabStop = true;
             this.radioButtonAmateur.Text = "Option C";
             this.radioButtonAmateur.UseVisualStyleBackColor = true;
+            this.radioButtonAmateur.Click += new System.EventHandler(this.radioButton_Click);
             // 
             // radioButtonAcceptable
             // 
@@ -85,6 +87,7 @@
             this.radioButtonAcceptable.TabStop = true;
             this.radioButtonAcceptable.Text = "Option B";
             this.radioButtonAcceptable.UseVisualStyleBackColor = true;
+            this.radioButtonAcceptable.Click += new System.EventHandler(this.radioButton_Click);
             // 
             // radioButtonExceptional
             // 
@@ -96,6 +99,7 @@
             this.radioButtonExceptional.TabStop = true;
             this.radioButtonExceptional.Text = "Option A";
             this.radioButtonExceptional.UseVisualStyleBackColor = true;
+            this.radioButtonExceptional.Click += new System.EventHandler(this.radioButton_Click);
             // 
             // dataGridViewFeedback
             // 
@@ -111,7 +115,9 @@
             this.dataGridViewFeedback.RowTemplate.Height = 24;
             this.dataGridViewFeedback.Size = new System.Drawing.Size(500, 250);
             this.dataGridViewFeedback.TabIndex = 1;
-            this.dataGridViewFeedback.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFeedback_CellLeave);
+            this.dataGridViewFeedback.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFeedback_CellClick);
+            this.dataGridViewFeedback.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFeedback_CellContentClick);
+            this.dataGridViewFeedback.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFeedback_CellEndEdit);
             // 
             // Add
             // 
@@ -132,11 +138,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridViewFeedback);
-            this.Controls.Add(this.groupBoxTitle);
+            this.Controls.Add(this.gradeGroupBox);
             this.Name = "GradeFeedback";
             this.Size = new System.Drawing.Size(750, 300);
-            this.groupBoxTitle.ResumeLayout(false);
-            this.groupBoxTitle.PerformLayout();
+            this.gradeGroupBox.ResumeLayout(false);
+            this.gradeGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFeedback)).EndInit();
             this.ResumeLayout(false);
 
@@ -144,7 +150,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBoxTitle;
+        private System.Windows.Forms.GroupBox gradeGroupBox;
         private System.Windows.Forms.RadioButton radioButtonUnsatisfactory;
         private System.Windows.Forms.RadioButton radioButtonAmateur;
         private System.Windows.Forms.RadioButton radioButtonAcceptable;
