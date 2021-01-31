@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AssignmentGrader.IO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace AssignmentGrader
 {
     public partial class FormAssignmentGrader : Form
     {
+        private FeedbackOutputBuilder outputBuilder;
         public FormAssignmentGrader()
         {
             InitializeComponent();
@@ -19,50 +21,12 @@ namespace AssignmentGrader
             this.initializeImplementationControl();
             this.initializeDocumentationControl();
 
+            this.outputBuilder = new FeedbackOutputBuilder(this.tabControlAssignmentFeedback.TabPages);
+            this.textBoxGradeSummary.Text = outputBuilder.GetSummary();
+
             this.gradeFeedbackFunctionality.FeedbackChanged += this.OnFeedbackChanged; 
             this.gradeFeedbackImplementation.FeedbackChanged += this.OnFeedbackChanged; 
             this.gradeFeedbackDocumentation.FeedbackChanged += this.OnFeedbackChanged; 
-        }
-
-        private void OnFeedbackChanged(object sender, EventArgs e)
-        {
-            var output = "";
-            var list = this.gradeFeedbackImplementation.GetSelectedComments();
-
-            foreach (TabPage currentPage in this.tabControlAssignmentFeedback.TabPages)
-            {
-                var control =
-                    currentPage.Controls.Cast<GradeEntryLibrary.GradeFeedback>().FirstOrDefault(
-                    x => x is GradeEntryLibrary.GradeFeedback);
-
-                var selectedButton = control.GetSelectedRadioButton();
-
-                output += $"{currentPage.Text} [{selectedButton.Tag} / {control.MaxPoints}] {Environment.NewLine}";
-
-
-
-                //foreach (var currentFeedback in control.GetSelectedComments())
-                //{
-                //    list.Add(currentFeedback);
-                //}
-
-                foreach (var currentFeedback in control.GetSelectedComments())
-                {
-                    output += currentFeedback + Environment.NewLine;
-                }
-
-                output += Environment.NewLine;
-            }
-
-
-
-            //var comments = "";
-            //foreach(var feedback in list)
-            //{
-            //    comments += feedback + Environment.NewLine;
-            //}
-
-            this.textBoxGradeSummary.Text = output;
         }
 
         private void initializeFunctionalityControl()
@@ -90,6 +54,11 @@ namespace AssignmentGrader
         {
             this.gradeFeedbackDocumentation.AddComment("Well done.");
             this.gradeFeedbackDocumentation.AddComment("Missing lots of required documentation.");
+        }
+
+        private void OnFeedbackChanged(object sender, EventArgs e)
+        {
+            this.textBoxGradeSummary.Text = outputBuilder.GetSummary();
         }
     }
 }

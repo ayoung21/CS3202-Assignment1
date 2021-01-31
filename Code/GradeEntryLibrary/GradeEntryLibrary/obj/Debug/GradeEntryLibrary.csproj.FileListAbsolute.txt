@@ -1,0 +1,8 @@
+C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\GradeEntryLibrary\bin\Debug\GradeEntryLibrary.dll
+C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\GradeEntryLibrary\bin\Debug\GradeEntryLibrary.pdb
+C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\GradeEntryLibrary\obj\Debug\GradeEntryLibrary.csprojAssemblyReference.cache
+C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\GradeEntryLibrary\obj\Debug\GradeEntryLibrary.GradeFeedback.resources
+C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\GradeEntryLibrary\obj\Debug\GradeEntryLibrary.csproj.GenerateResource.cache
+C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\GradeEntryLibrary\obj\Debug\GradeEntryLibrary.csproj.CoreCompileInputs.cache
+C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\GradeEntryLibrary\obj\Debug\GradeEntryLibrary.dll
+C:\Users\andre\Documents\School\PC\Assignment 1\CS3202-Assignment1\Code\GradeEntryLibrary\GradeEntryLibrary\obj\Debug\GradeEntryLibrary.pdb
